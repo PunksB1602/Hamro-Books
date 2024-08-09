@@ -96,7 +96,7 @@ const registeruser=async(req,res)=>{
      const insertvalues=[username,email,hashedpassword,firstname,lastname,phonenumber,address,isseller];
      await pool.query(insertquery,insertvalues);
 
-     res.redirect('/login');
+     res.redirect('/');
 
    }
 
@@ -112,8 +112,8 @@ const registeruser=async(req,res)=>{
 
 const logout=(req,res)=>{
 
-    res.clearcookie('authToken');
-    res.redirect('/login');
+    res.clearCookie('authToken');
+    res.redirect('/');
 
 
 

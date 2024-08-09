@@ -15,7 +15,7 @@ const { ensureseller,ensurebuyer } = require('../middlewares/ensureSeller');
 
 router.get('/',(req,res)=>{
     const {message}=req.query;
-    res.render("loginpage",{message:message});
+    res.render('loginpage',{message:message});
 
 });
 router.post('/login',auth.loginuser);
@@ -50,6 +50,7 @@ router.get("/sort_by_price",authmiddleware,buyer_section_order.sort_by_price);
 
 router.get("/search",authmiddleware,buyer_section_order.search);
 router.get("/myprofile",authmiddleware,buyer_section_order.view_profile);
+router.get("/seller_myprofile",authmiddleware,ensureseller,seller_section_order.view_profile);
 router.get("/logout",authmiddleware,auth.logout);
 
 

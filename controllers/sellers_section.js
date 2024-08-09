@@ -182,4 +182,24 @@ const delete_book=async (req,res)=>{
 
 }
 
-module.exports={see_pending_orders,update_book_info,checkout_orders,delete_book,view_books,cancel_orders};
+
+
+const view_profile=async (req,res)=>{
+    try{
+        const user_id=req.user_id;
+
+    const profile_query=`Select * from users where user_id=$1`;
+
+    const profile=await pool.query(profile_query,[user_id]);
+    console.log(profile.rows);
+
+    res.render('sellerr/sellers_profile',{profile_values:profile.rows});
+    }
+    catch(err)
+    {
+        console.log(error);
+    }
+
+}
+
+module.exports={see_pending_orders,update_book_info,checkout_orders,delete_book,view_books,cancel_orders,view_profile};

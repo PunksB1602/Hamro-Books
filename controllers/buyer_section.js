@@ -342,14 +342,20 @@ catch(error)
 
 
 const view_profile=async (req,res)=>{
-    const user_id=req.user_id;
+    try{
+        const user_id=req.user_id;
 
     const profile_query=`Select * from users where user_id=$1`;
 
     const profile=await pool.query(profile_query,[user_id]);
     console.log(profile.rows);
 
-    res.render('/myprofile',{profile_values:profile.rows});
+    res.render('myprofile',{profile_values:profile.rows});
+    }
+    catch(err)
+    {
+        console.log(error);
+    }
 
 }
 

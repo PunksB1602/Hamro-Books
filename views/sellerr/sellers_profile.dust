@@ -360,7 +360,7 @@ body {
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
-            <a href="./cart.html" class="fas fa-shopping-cart"></a>
+           
             <div id="login-btn" class="fas fa-user"></div>
         </div>
 
@@ -368,10 +368,11 @@ body {
 
     <div class="header-2">
         <nav class="navbar">
-             <a href="/buyer_homepage">home</a>
-            <a href="#featured">featured</a>
-            <a href="#category">category</a>
-            <a href="/my_orders">My Orders</a>
+             <a href="/seller_home_page">home</a>
+			<a href="/add_a_book">Add New Books</a>
+            <a href="#manage-books">Manage Books</a>
+            <a href="/pending_orders">Orders</a>
+            <a href="#reviews">reviews</a>
         </nav>
     </div>
 

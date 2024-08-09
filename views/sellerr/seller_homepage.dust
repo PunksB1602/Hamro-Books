@@ -37,7 +37,14 @@
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
-            <div id="login-btn" class="fas fa-user"></div>
+            <div id="login-btn" class="fas fa-user">
+            <div class="profile-dropdown-container">
+                    <div class="profile-dropdown">
+                        <a href="/seller_myprofile">View Profile</a>
+                        <a href="/logout">Logout</a>  
+                    </div>
+                     </div>
+            </div>
         </div>
 
     </div>

@@ -107,4 +107,18 @@ var swiper = new Swiper(".category-slider", {
   },
 });
 
+/* profile dropdown toggle*/
+document.querySelector('#login-btn').addEventListener('click', function() {
+  document.querySelector('.profile-dropdown-container').classList.toggle('active');
+});
+
+document.addEventListener('click', function(event) {
+  const dropdownContainer = document.querySelector('.profile-dropdown-container');
+  const isClickInside = dropdownContainer.contains(event.target);
+  
+  if (!isClickInside && event.target.id !== 'login-btn') {
+      dropdownContainer.classList.remove('active');
+  }
+});
+
 

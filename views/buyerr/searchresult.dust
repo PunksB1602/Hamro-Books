@@ -445,7 +445,7 @@ body {
         <div class="book">
             <img src="{image_url}" alt="Book 1">
             <h3>{title}</h3>
-            <a href="productdescription.html" class="btn">See More</a>
+            <a href="/productdescription/{book_id}" class="btn">See More</a>
         </div>
          
     </div>
