@@ -570,6 +570,8 @@ body {
             <a href="/buyer_homepage">home</a>
             <a href="/buyer_homepage#featured">featured</a>
             <a href="/buyer_homepage#category">category</a>
+            <a href="/my_orders">My Orders</a>
+
             <a href="#reviews">reviews</a>
         </nav>
     </div>
