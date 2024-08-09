@@ -14,7 +14,8 @@ const checkAuth=async (req,res,next)=>{
 
     if(!authToken)
         {
-            return res.status(401).json(sendResponse(false,'Authentication Failed. Please Login To Continue' ));
+            // return res.status(401).json(sendResponse(false,'Authentication Failed. Please Login To Continue' ));
+            res.redirect('/');
         }
     
         try{
