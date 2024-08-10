@@ -1,7 +1,7 @@
 # Hamro Books
 
 ## Overview
-Hamro Books is an online book shopping store where customers can buy books of various kinds. This Database Management System (DBMS) project was developed as part of a practical-project of subject DBMS to showcase the integration of frontend, backend, and database management.
+Hamro Books is an online book shopping store where customers can buy books of various kinds. This Database Management System (DBMS) project was developed as part of a lab-project of  DBMS subject of our SEM V to showcase the integration of frontend, backend, and database management.
 
 ## Project Team
 - **Pankaj Bhatt (THA078BEI025)**: Frontend Design + Database Insertion
