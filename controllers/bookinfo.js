@@ -1,12 +1,19 @@
 const pool=require('../connection');
-const cloudinary=require('../middlewares/cloudinary')
+const cloudinary=require('../middlewares/cloudinary');
+const multer=require('multer');
+const path=require('path');
+
+
+
+
+const add_book_page=(req,res)=>{
+    res.render('sellerr/add_book');
+};
 
 
 const bookdetails_upload=async (req,res)=>
     {
-
-       
-        
+     
     try{
         const filepath=req.file.path;
     const image_url=await cloudinary.upload_file(filepath);
@@ -19,6 +26,7 @@ const bookdetails_upload=async (req,res)=>
 
     const {title,isbn,edition=null,current_condition,description,price,availiable_quantity,category}=req.body;
      
+    console.log(title,isbn,edition,current_condition,description,price,availiable_quantity,category);
 
     const author_name=req.body.author_name;
     const insert_author_query=`Insert into authors(author_name) values($1)`;
@@ -32,7 +40,7 @@ const bookdetails_upload=async (req,res)=>
 
 
     //Have to make changes here as cookie.user_id gives currently logged in user id
-    const listed_by_user_id=req.cookies.user_id;
+    const listed_by_user_id=req.user_id;
     //console.log(listed_by_user_id);
     //const listed_by_user_id=1;
    // const listed_by_query=`Select user_id from users where user_id=$1`;
@@ -59,7 +67,9 @@ const bookdetails_upload=async (req,res)=>
 
     await pool.query(wholeinfo_query,wholeinfo_value);
     console.log("Second last line");
-    res.status(201).json({message:"Books updated successfully"});
+
+    res.redirect('/add_a_book');
+    // res.status(201).json({message:"Books updated successfully"});
 
     }
 
@@ -77,4 +87,4 @@ const bookdetails_upload=async (req,res)=>
 };
 
 
-module.exports={bookdetails_upload};
+module.exports={bookdetails_upload,add_book_page};

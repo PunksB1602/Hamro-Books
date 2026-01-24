@@ -36,19 +36,28 @@ try{
 
             if(!ispasswordmatch)
                 {
-                    return (res.status(200).json(sendResponse(false, 'Email and password are not matching')));
+                    res.redirect('/?Password Doesnot match. Please try again.');
+                    // return (res.status(200).json(sendResponse(false, 'Email and password are not matching')));
                 }
                 else{
-                    const authToken=jwt.sign({userid:user.user_id},process.env.JWT_SECRET_KEY,{expiresIn:'40m'})
+                    const authToken=jwt.sign({userid:user.user_id,is_seller:user.is_seller},process.env.JWT_SECRET_KEY,{expiresIn:'200m'})
                     res.cookie('authToken',authToken,{httpOnly: true,sameSite: 'None', secure: true})
 
 
                     //res.status(200).json({message:"Login Successful"});
-                    res.redirect('/home');
+
+                    if(user.is_seller)
+                    {
+                        res.redirect('/seller_home_page');
+                    }
+                    else{
+                        res.redirect('/buyer_homepage');
+                    }
                 }
         }
         else{
-            res.status(200).json(sendResponse(false, 'No user found Check your Credential Properly'));
+            res.redirect('/?message=Invalid credentials. Please try again.');
+            // res.status(200).json(sendResponse(false, 'No user found Check your Credential Properly'));
         }
 }
 catch(error)
@@ -71,9 +80,9 @@ const registeruser=async(req,res)=>{
     const checkvalues=[username,email];
 
    try{
-          
+          console.log("database about to connect");
     const isexists=await pool.query(checkquery,checkvalues);
-
+            console.log("connected");
 
     if(isexists.rows.length>0){
         return res.status(400).json({error:"Username or password already exists"});
@@ -87,7 +96,7 @@ const registeruser=async(req,res)=>{
      const insertvalues=[username,email,hashedpassword,firstname,lastname,phonenumber,address,isseller];
      await pool.query(insertquery,insertvalues);
 
-     res.status(201).json({message:"User registered successfully"});
+     res.redirect('/');
 
    }
 
@@ -99,5 +108,15 @@ const registeruser=async(req,res)=>{
 
 };
 
+//logout
 
-module.exports={loginuser,registeruser};
+const logout=(req,res)=>{
+
+    res.clearCookie('authToken');
+    res.redirect('/');
+
+
+
+}
+
+module.exports={loginuser,registeruser,logout};
