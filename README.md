@@ -98,6 +98,8 @@ This project is not yet licensed.
 ## Contact
 For any inquiries or feedback, please reach out to:
 
-- **Subham Gautam**: gautamsubham65@gmail.com
+- **Pankaj Bhatt**: pbecie16@gmail.com
 - **Pratik Pokharel**: pratikpokhrel14@gmail.com
-- **Pankaj Bhatt**: pankajbhattcoc16@gmail.com
+- **Subham Gautam**: gautamsubham65@gmail.com
+
+
